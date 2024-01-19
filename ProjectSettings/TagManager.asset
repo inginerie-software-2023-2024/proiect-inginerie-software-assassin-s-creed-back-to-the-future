@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Points
+  - Route
+  - Route2
+  - Route3
+  - Route4
   layers:
   - Default
   - TransparentFX
