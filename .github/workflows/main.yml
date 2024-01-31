@@ -3,9 +3,27 @@ name: Build project
 on: [push]
 
 jobs:
+  runUnitTests:
+    name: Run Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Unity
+        uses: game-ci/setup-unity@v1
+        with:
+          unityVersion: 2022.3.10f1
+      - name: Run Unity Tests
+        uses: game-ci/unity-test-runner@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          projectPath: ./Assets/Tests
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+
   buildForWin64Platforms:
     name: Build for ${{ matrix.targetPlatform }}
     runs-on: ubuntu-latest
+    needs: runUnitTests
     strategy:
       fail-fast: false
       matrix:
