@@ -27,6 +27,7 @@ jobs:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
           testMode: editmode
+          customImage: 'unityci/editor:ubuntu-2022.3.10f1-linux-il2cpp-3.0.1'
           artifactsPath: artifacts/test-results
       - if: matrix.targetPlatform == 'Android'
         uses: jlumbroso/free-disk-space@v1.3.1
