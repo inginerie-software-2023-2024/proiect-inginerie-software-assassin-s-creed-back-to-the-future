@@ -26,8 +26,6 @@ jobs:
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
-          unityVersion: '2022.3.10f1'
-          targetPlatform: 'StandaloneLinux64'
           testMode: editmode
           customImage: 'unityci/editor:ubuntu-2022.3.10f1-linux-il2cpp-3.0.1'
           artifactsPath: artifacts/test-results
