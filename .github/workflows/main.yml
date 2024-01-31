@@ -16,7 +16,6 @@ jobs:
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
-          projectPath: ./ProjectSettings
           githubToken: ${{ secrets.GITHUB_TOKEN }}
   buildForWin64Platforms:
     name: Build for ${{ matrix.targetPlatform }}
